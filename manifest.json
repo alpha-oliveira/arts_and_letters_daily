@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "ALDaily AI Summarizer",
+  "version": "1.2",
+  "description": "Injects an AI summary button next to links on Arts & Letters Daily using Groq.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://api.groq.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["https://www.aldaily.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
